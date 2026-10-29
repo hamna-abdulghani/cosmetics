@@ -1,0 +1,1386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AURA LUXE | Botanical & High-End Cosmetics</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --rose-gold: #b76e79;
+            --rose-gold-light: #e8c5c8;
+            --soft-blush: #fcf4f2;
+            --warm-nude: #f5ece5;
+            --cream-bg: #fdfbf7;
+            --charcoal: #222222;
+            --charcoal-light: #4a4a4a;
+            --gold-accent: #d4af37;
+            --card-shadow: 0 10px 30px rgba(183, 110, 121, 0.08);
+            --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--cream-bg);
+            color: var(--charcoal);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* Typography Override */
+        h1, h2, h3, h4, h5, .font-serif {
+            font-family: 'Cormorant Garamond', serif;
+            letter-spacing: 0.5px;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--cream-bg);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--rose-gold-light);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--rose-gold);
+        }
+
+        /* Luxury Buttons */
+        .btn-luxe-primary {
+            background: linear-gradient(135deg, #c47c87 0%, var(--rose-gold) 100%);
+            color: #ffffff;
+            border: none;
+            border-radius: 50px;
+            padding: 12px 32px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            box-shadow: 0 6px 20px rgba(183, 110, 121, 0.3);
+            transition: var(--transition-smooth);
+        }
+
+        .btn-luxe-primary:hover {
+            background: linear-gradient(135deg, var(--rose-gold) 0%, #9e5560 100%);
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(183, 110, 121, 0.45);
+        }
+
+        .btn-luxe-outline {
+            background: transparent;
+            color: var(--charcoal);
+            border: 1.5px solid var(--rose-gold);
+            border-radius: 50px;
+            padding: 11px 30px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: var(--transition-smooth);
+        }
+
+        .btn-luxe-outline:hover {
+            background-color: var(--rose-gold);
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        /* Top Announcement Bar */
+        .announcement-bar {
+            background: var(--charcoal);
+            color: var(--warm-nude);
+            font-size: 0.75rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 8px 0;
+            font-weight: 500;
+        }
+
+        /* Sticky Navbar */
+        .navbar {
+            background-color: rgba(253, 251, 247, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(183, 110, 121, 0.15);
+            transition: var(--transition-smooth);
+            padding: 18px 0;
+        }
+
+        .navbar.scrolled {
+            padding: 12px 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .navbar-brand {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            color: var(--charcoal) !important;
+        }
+
+        .nav-link {
+            font-size: 0.82rem;
+            font-weight: 500;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--charcoal) !important;
+            margin: 0 10px;
+            position: relative;
+            transition: var(--transition-smooth);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1.5px;
+            bottom: -2px;
+            left: 50%;
+            background-color: var(--rose-gold);
+            transition: var(--transition-smooth);
+            transform: translateX(-50%);
+        }
+
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 80%;
+        }
+
+        .nav-icon-btn {
+            background: none;
+            border: none;
+            color: var(--charcoal);
+            font-size: 1.1rem;
+            position: relative;
+            padding: 6px 10px;
+            transition: var(--transition-smooth);
+        }
+
+        .nav-icon-btn:hover {
+            color: var(--rose-gold);
+        }
+
+        .cart-badge {
+            position: absolute;
+            top: 2px;
+            right: 2px;
+            background-color: var(--rose-gold);
+            color: white;
+            font-size: 0.65rem;
+            width: 17px;
+            height: 17px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            min-height: 90vh;
+            background: radial-gradient(circle at 80% 20%, var(--soft-blush) 0%, var(--warm-nude) 50%, var(--cream-bg) 100%);
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding: 100px 0 60px;
+        }
+
+        .hero-title {
+            font-size: 3.8rem;
+            font-weight: 600;
+            line-height: 1.15;
+            color: var(--charcoal);
+        }
+
+        .hero-subtitle {
+            font-size: 1.05rem;
+            color: var(--charcoal-light);
+            font-weight: 300;
+            max-width: 500px;
+            line-height: 1.7;
+        }
+
+        .hero-image-wrap {
+            position: relative;
+            text-align: center;
+        }
+
+        .hero-main-img {
+            max-width: 85%;
+            height: auto;
+            filter: drop-shadow(0 20px 40px rgba(183, 110, 121, 0.2));
+            animation: floatHero 6s ease-in-out infinite;
+        }
+
+        @keyframes floatHero {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .badge-pill-luxe {
+            display: inline-flex;
+            align-items: center;
+            padding: 6px 16px;
+            border-radius: 30px;
+            background: rgba(255, 255, 255, 0.85);
+            border: 1px solid var(--rose-gold-light);
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--rose-gold);
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        /* Feature Badges */
+        .feature-badge-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            color: var(--charcoal-light);
+        }
+
+        .feature-badge-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(183, 110, 121, 0.12);
+            color: var(--rose-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+        }
+
+        /* Section Title Header */
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-subtitle {
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--rose-gold);
+            font-weight: 600;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .section-title {
+            font-size: 2.8rem;
+            font-weight: 600;
+            color: var(--charcoal);
+        }
+
+        /* Category Filter Tabs */
+        .filter-pill-btn {
+            background: transparent;
+            border: 1px solid rgba(183, 110, 121, 0.25);
+            color: var(--charcoal);
+            border-radius: 40px;
+            padding: 8px 24px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin: 0 4px 10px;
+            transition: var(--transition-smooth);
+        }
+
+        .filter-pill-btn:hover, .filter-pill-btn.active {
+            background: var(--rose-gold);
+            color: #ffffff;
+            border-color: var(--rose-gold);
+            box-shadow: 0 4px 15px rgba(183, 110, 121, 0.25);
+        }
+
+        /* Product Cards */
+        .product-card {
+            background: #ffffff;
+            border-radius: 16px;
+            border: 1px solid rgba(183, 110, 121, 0.12);
+            overflow: hidden;
+            transition: var(--transition-smooth);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--card-shadow);
+            border-color: var(--rose-gold-light);
+        }
+
+        .product-img-wrap {
+            position: relative;
+            background: var(--warm-nude);
+            padding: 30px;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .product-img-wrap svg {
+            width: 100%;
+            height: 200px;
+            object-fit: contain;
+            transition: var(--transition-smooth);
+        }
+
+        .product-card:hover .product-img-wrap svg {
+            transform: scale(1.06);
+        }
+
+        .product-tag {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--rose-gold);
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 4px 10px;
+            border-radius: 20px;
+            border: 1px solid var(--rose-gold-light);
+            z-index: 2;
+        }
+
+        .quick-view-overlay {
+            position: absolute;
+            bottom: -50px;
+            left: 0;
+            right: 0;
+            background: rgba(253, 251, 247, 0.92);
+            backdrop-filter: blur(5px);
+            padding: 10px;
+            text-align: center;
+            transition: var(--transition-smooth);
+            opacity: 0;
+        }
+
+        .product-card:hover .quick-view-overlay {
+            bottom: 0;
+            opacity: 1;
+        }
+
+        .product-body {
+            padding: 22px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .product-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: var(--charcoal);
+        }
+
+        .product-desc {
+            font-size: 0.8rem;
+            color: var(--charcoal-light);
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+
+        .shade-swatches {
+            display: flex;
+            gap: 6px;
+            margin-bottom: 15px;
+        }
+
+        .swatch-dot {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            display: inline-block;
+            border: 2px solid white;
+            box-shadow: 0 0 0 1px rgba(0,0,0,0.15);
+            cursor: pointer;
+            transition: var(--transition-smooth);
+        }
+
+        .swatch-dot:hover, .swatch-dot.active {
+            transform: scale(1.25);
+            box-shadow: 0 0 0 2px var(--rose-gold);
+        }
+
+        .product-price {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--charcoal);
+        }
+
+        .rating-stars {
+            color: var(--gold-accent);
+            font-size: 0.75rem;
+        }
+
+        /* Interactive Quiz Section */
+        .quiz-section {
+            background: linear-gradient(135deg, var(--soft-blush) 0%, var(--warm-nude) 100%);
+            border-radius: 24px;
+            padding: 50px 30px;
+            border: 1px solid var(--rose-gold-light);
+            box-shadow: var(--card-shadow);
+        }
+
+        .quiz-option-btn {
+            background: #ffffff;
+            border: 1.5px solid var(--rose-gold-light);
+            border-radius: 12px;
+            padding: 16px;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            height: 100%;
+        }
+
+        .quiz-option-btn:hover, .quiz-option-btn.selected {
+            border-color: var(--rose-gold);
+            background: var(--soft-blush);
+            transform: translateY(-3px);
+        }
+
+        /* Ingredients Spotlight */
+        .ingredient-card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 30px 24px;
+            text-align: center;
+            border: 1px solid rgba(183, 110, 121, 0.12);
+            transition: var(--transition-smooth);
+            height: 100%;
+        }
+
+        .ingredient-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--rose-gold);
+            box-shadow: var(--card-shadow);
+        }
+
+        .ingredient-icon-wrap {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            background: var(--soft-blush);
+            color: var(--rose-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            border: 1px dashed var(--rose-gold);
+        }
+
+        /* Testimonials Carousel */
+        .testimonial-card {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 40px;
+            border: 1px solid rgba(183, 110, 121, 0.15);
+            box-shadow: var(--card-shadow);
+        }
+
+        .carousel-indicators [data-bs-target] {
+            background-color: var(--rose-gold);
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin: 0 5px;
+        }
+
+        /* Offcanvas Shopping Cart */
+        .offcanvas-luxe {
+            background-color: var(--cream-bg);
+            border-left: 1px solid var(--rose-gold-light);
+        }
+
+        .cart-item-card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 14px;
+            border: 1px solid rgba(183, 110, 121, 0.12);
+            margin-bottom: 12px;
+        }
+
+        .progress-luxe {
+            height: 6px;
+            background-color: var(--warm-nude);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress-bar-luxe {
+            background: linear-gradient(90deg, var(--rose-gold-light), var(--rose-gold));
+        }
+
+        /* Quick View Modal Customization */
+        .modal-content-luxe {
+            background-color: var(--cream-bg);
+            border-radius: 24px;
+            border: 1px solid var(--rose-gold-light);
+            overflow: hidden;
+        }
+
+        /* Footer Styling */
+        footer {
+            background-color: var(--charcoal);
+            color: var(--warm-nude);
+            padding: 70px 0 30px;
+        }
+
+        footer a {
+            color: rgba(245, 236, 229, 0.7);
+            text-decoration: none;
+            transition: var(--transition-smooth);
+            font-size: 0.85rem;
+        }
+
+        footer a:hover {
+            color: var(--rose-gold-light);
+            padding-left: 4px;
+        }
+
+        .footer-brand {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2rem;
+            letter-spacing: 3px;
+            color: #ffffff;
+        }
+
+        .newsletter-input {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            color: #ffffff;
+            padding: 12px 20px;
+            font-size: 0.85rem;
+        }
+
+        .newsletter-input:focus {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: var(--rose-gold-light);
+            color: #ffffff;
+            box-shadow: none;
+        }
+
+        .newsletter-input::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Announcement Bar -->
+    <div class="announcement-bar text-center">
+        <i class="fa-solid fa-sparkles me-2 text-warning"></i> Complimentary Deluxe Mini Sample with all Orders Over $75 | Free Worldwide Shipping <i class="fa-solid fa-sparkles ms-2 text-warning"></i>
+    </div>
+
+    <!-- Navigation Header -->
+    <nav class="navbar navbar-expand-lg sticky-top" id="mainNavbar">
+        <div class="container">
+            <a class="navbar-brand" href="#">AURA LUXE</a>
+
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+                <i class="fa-solid fa-bars fs-4 text-dark"></i>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link active" href="#hero">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#products">Collections</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#quiz">Skin Quiz</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#ingredients">Ingredients</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#reviews">Reviews</a></li>
+                </ul>
+
+                <div class="d-flex align-items-center gap-2">
+                    <button class="nav-icon-btn" title="Search" data-bs-toggle="modal" data-bs-target="#searchModal">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                    <button class="nav-icon-btn" title="Account">
+                        <i class="fa-regular fa-user"></i>
+                    </button>
+                    <button class="nav-icon-btn" title="Cart" data-bs-toggle="offcanvas" data-bs-target="#cartOffcanvas">
+                        <i class="fa-solid fa-bag-shopping"></i>
+                        <span class="cart-badge" id="cartBadgeCount">2</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center gy-5">
+                <div class="col-lg-6">
+                    <span class="badge-pill-luxe">
+                        <i class="fa-solid fa-leaf me-2"></i> 100% Pure Organic & Botanical
+                    </span>
+                    <h1 class="hero-title mb-3">Unveil Your Pure, <br><i class="font-serif italic text-danger-emphasis">Natural Glow.</i></h1>
+                    <p class="hero-subtitle mb-4">
+                        Harnessing cold-pressed botanical extracts and clinical peptide science to deliver luminous, ageless skin without compromise.
+                    </p>
+                    <div class="d-flex flex-wrap gap-3 mb-5">
+                        <a href="#products" class="btn btn-luxe-primary">
+                            Shop Best Sellers <i class="fa-solid fa-arrow-right ms-2"></i>
+                        </a>
+                        <a href="#quiz" class="btn btn-luxe-outline">
+                            Take Skin Match Quiz
+                        </a>
+                    </div>
+
+                    <!-- Feature Badges Row -->
+                    <div class="row g-3 pt-4 border-top border-secondary border-opacity-10">
+                        <div class="col-6 col-sm-3">
+                            <div class="feature-badge-item">
+                                <div class="feature-badge-icon"><i class="fa-solid fa-paw"></i></div>
+                                <span>Cruelty<br>Free</span>
+                            </div>
+                        </div>
+                        <div class="col-6 col-sm-3">
+                            <div class="feature-badge-item">
+                                <div class="feature-badge-icon"><i class="fa-solid fa-seedling"></i></div>
+                                <span>100%<br>Vegan</span>
+                            </div>
+                        </div>
+                        <div class="col-6 col-sm-3">
+                            <div class="feature-badge-item">
+                                <div class="feature-badge-icon"><i class="fa-solid fa-user-doctor"></i></div>
+                                <span>Derm<br>Tested</span>
+                            </div>
+                        </div>
+                        <div class="col-6 col-sm-3">
+                            <div class="feature-badge-item">
+                                <div class="feature-badge-icon"><i class="fa-solid fa-recycle"></i></div>
+                                <span>Eco<br>Packaged</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SVG Hero Art Display -->
+                <div class="col-lg-6">
+                    <div class="hero-image-wrap">
+                        <svg class="hero-main-img" viewBox="0 0 400 450" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Soft Background Glow Ellipse -->
+                            <ellipse cx="200" cy="225" rx="170" ry="190" fill="#E8C5C8" opacity="0.4"/>
+                            
+                            <!-- Serum Bottle Body -->
+                            <rect x="135" y="160" width="130" height="220" rx="25" fill="#FFFFFF" stroke="#B76E79" stroke-width="3"/>
+                            <!-- Liquid inside -->
+                            <rect x="143" y="210" width="114" height="160" rx="15" fill="#FCF4F2"/>
+                            <path d="M143 230 C 180 210, 220 240, 257 220 L 257 370 L 143 370 Z" fill="#E8C5C8" opacity="0.6"/>
+                            
+                            <!-- Label -->
+                            <rect x="155" y="220" width="90" height="110" rx="8" fill="#FFFFFF" stroke="#F5ECE5" stroke-width="2"/>
+                            <text x="200" y="255" text-anchor="middle" font-family="'Cormorant Garamond', serif" font-size="16" font-weight="bold" fill="#222222">AURA</text>
+                            <text x="200" y="270" text-anchor="middle" font-family="'Montserrat', sans-serif" font-size="8" letter-spacing="2" fill="#B76E79">LUXE</text>
+                            <line x1="175" y1="280" x2="225" y2="280" stroke="#B76E79" stroke-width="1"/>
+                            <text x="200" y="298" text-anchor="middle" font-family="'Montserrat', sans-serif" font-size="7" fill="#4A4A4A">ROSE NECTAR</text>
+                            <text x="200" y="310" text-anchor="middle" font-family="'Montserrat', sans-serif" font-size="6" fill="#B76E79">GLOW SERUM</text>
+
+                            <!-- Bottle Cap Base & Dropper -->
+                            <rect x="160" y="125" width="80" height="35" rx="6" fill="#D4AF37"/>
+                            <rect x="175" y="90" width="50" height="35" rx="12" fill="#222222"/>
+
+                            <!-- Floating Botanical Leaves Art -->
+                            <path d="M70 140 C 40 100, 100 80, 110 120 C 80 130, 75 160, 70 140 Z" fill="#B76E79" opacity="0.7"/>
+                            <path d="M310 320 C 350 280, 370 340, 330 360 C 310 340, 290 350, 310 320 Z" fill="#B76E79" opacity="0.5"/>
+                            <circle cx="310" cy="150" r="12" fill="#D4AF37" opacity="0.4"/>
+                            <circle cx="90" cy="330" r="18" fill="#E8C5C8" opacity="0.6"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Collections Section -->
+    <section id="products" class="py-5 my-5">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Curated Skincare & Makeup</span>
+                <h2 class="section-title">Cult Favorites & Essentials</h2>
+            </div>
+
+            <!-- Filter Tabs -->
+            <div class="d-flex flex-wrap justify-content-center mb-5" id="filterPillGroup">
+                <button class="filter-pill-btn active" onclick="filterProducts('all', this)">All Creations</button>
+                <button class="filter-pill-btn" onclick="filterProducts('skincare', this)">Skincare</button>
+                <button class="filter-pill-btn" onclick="filterProducts('makeup', this)">Makeup</button>
+                <button class="filter-pill-btn" onclick="filterProducts('serums', this)">Serums & Oils</button>
+                <button class="filter-pill-btn" onclick="filterProducts('lips', this)">Lips & Eyes</button>
+            </div>
+
+            <!-- Product Grid -->
+            <div class="row g-4" id="productGrid">
+                
+                <!-- Product Card 1 -->
+                <div class="col-md-6 col-lg-3 product-item" data-category="serums">
+                    <div class="product-card">
+                        <span class="product-tag">Bestseller</span>
+                        <div class="product-img-wrap">
+                            <svg viewBox="0 0 150 180" fill="none">
+                                <rect x="45" y="50" width="60" height="100" rx="15" fill="#FFFFFF" stroke="#B76E79" stroke-width="2"/>
+                                <rect x="52" y="80" width="46" height="60" fill="#FCF4F2"/>
+                                <rect x="55" y="30" width="40" height="20" rx="4" fill="#D4AF37"/>
+                                <circle cx="75" cy="20" r="10" fill="#222222"/>
+                            </svg>
+                            <div class="quick-view-overlay">
+                                <button class="btn btn-luxe-primary btn-sm w-100" onclick="openQuickView('Rose Gold Radiance Serum', '$68.00', 'Rich in botanical Vitamin C and 24K gold flakes for an instantly luminous complexion.', '#B76E79')">
+                                    Quick View
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <div class="rating-stars mb-1">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <span class="text-muted ms-1" style="font-size:0.7rem">(128)</span>
+                            </div>
+                            <h3 class="product-title">Rose Radiance Serum</h3>
+                            <p class="product-desc">24K Gold & Botanical Vitamin C Nectar</p>
+                            <div class="shade-swatches">
+                                <span class="swatch-dot active" style="background-color: #e8c5c8;"></span>
+                                <span class="swatch-dot" style="background-color: #f5ece5;"></span>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-between mt-auto">
+                                <span class="product-price">$68.00</span>
+                                <button class="btn btn-luxe-outline btn-sm py-1 px-3" onclick="addToCart('Rose Radiance Serum', 68.00)">
+                                    + Add
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 2 -->
+                <div class="col-md-6 col-lg-3 product-item" data-category="makeup">
+                    <div class="product-card">
+                        <span class="product-tag">New</span>
+                        <div class="product-img-wrap">
+                            <svg viewBox="0 0 150 180" fill="none">
+                                <rect x="55" y="40" width="40" height="110" rx="20" fill="#222222"/>
+                                <rect x="62" y="30" width="26" height="20" fill="#D4AF37"/>
+                                <path d="M62 30 L75 5 L88 30 Z" fill="#C47C87"/>
+                            </svg>
+                            <div class="quick-view-overlay">
+                                <button class="btn btn-luxe-primary btn-sm w-100" onclick="openQuickView('Velour Matte Lipstick', '$38.00', 'Hydrating hyaluronic-infused lipstick with a velvet weightless finish.', '#C47C87')">
+                                    Quick View
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <div class="rating-stars mb-1">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                                <span class="text-muted ms-1" style="font-size:0.7rem">(94)</span>
+                            </div>
+                            <h3 class="product-title">Velour Matte Lipstick</h3>
+                            <p class="product-desc">Hyaluronic Infused Long-wear Nude</p>
+                            <div class="shade-swatches">
+                                <span class="swatch-dot active" style="background-color: #b76e79;"></span>
+                                <span class="swatch-dot" style="background-color: #803942;"></span>
+                                <span class="swatch-dot" style="background-color: #d1928b;"></span>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-between mt-auto">
+                                <span class="product-price">$38.00</span>
+                                <button class="btn btn-luxe-outline btn-sm py-1 px-3" onclick="addToCart('Velour Matte Lipstick', 38.00)">
+                                    + Add
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 3 -->
+                <div class="col-md-6 col-lg-3 product-item" data-category="skincare">
+                    <div class="product-card">
+                        <span class="product-tag">Organic</span>
+                        <div class="product-img-wrap">
+                            <svg viewBox="0 0 150 180" fill="none">
+                                <rect x="35" y="60" width="80" height="80" rx="40" fill="#FFFFFF" stroke="#B76E79" stroke-width="2"/>
+                                <rect x="45" y="45" width="60" height="20" rx="5" fill="#F5ECE5"/>
+                            </svg>
+                            <div class="quick-view-overlay">
+                                <button class="btn btn-luxe-primary btn-sm w-100" onclick="openQuickView('Cellular Restorative Cream', '$84.00', 'Overnight peptide cream that deeply repairs skin moisture barrier.', '#F5ECE5')">
+                                    Quick View
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <div class="rating-stars mb-1">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <span class="text-muted ms-1" style="font-size:0.7rem">(210)</span>
+                            </div>
+                            <h3 class="product-title">Cellular Night Cream</h3>
+                            <p class="product-desc">Bio-Peptides & Ceramide Barrier Complex</p>
+                            <div class="shade-swatches">
+                                <span class="swatch-dot active" style="background-color: #fcf4f2;"></span>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-between mt-auto">
+                                <span class="product-price">$84.00</span>
+                                <button class="btn btn-luxe-outline btn-sm py-1 px-3" onclick="addToCart('Cellular Night Cream', 84.00)">
+                                    + Add
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 4 -->
+                <div class="col-md-6 col-lg-3 product-item" data-category="lips">
+                    <div class="product-card">
+                        <span class="product-tag">Award Winner</span>
+                        <div class="product-img-wrap">
+                            <svg viewBox="0 0 150 180" fill="none">
+                                <rect x="55" y="50" width="40" height="90" rx="10" fill="#FFFFFF" stroke="#B76E79" stroke-width="2"/>
+                                <rect x="60" y="65" width="30" height="65" fill="#E8C5C8"/>
+                                <rect x="58" y="35" width="34" height="18" fill="#D4AF37"/>
+                            </svg>
+                            <div class="quick-view-overlay">
+                                <button class="btn btn-luxe-primary btn-sm w-100" onclick="openQuickView('Nectar Lip Nurture Oil', '$32.00', 'Non-sticky glass glow lip treatment with organic rosehip seed oil.', '#E8C5C8')">
+                                    Quick View
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-body">
+                            <div class="rating-stars mb-1">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <span class="text-muted ms-1" style="font-size:0.7rem">(88)</span>
+                            </div>
+                            <h3 class="product-title">Nectar Lip Nurture Oil</h3>
+                            <p class="product-desc">Organic Rosehip & Jojoba Glass Tint</p>
+                            <div class="shade-swatches">
+                                <span class="swatch-dot active" style="background-color: #e8c5c8;"></span>
+                                <span class="swatch-dot" style="background-color: #f7a8b8;"></span>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-between mt-auto">
+                                <span class="product-price">$32.00</span>
+                                <button class="btn btn-luxe-outline btn-sm py-1 px-3" onclick="addToCart('Nectar Lip Nurture Oil', 32.00)">
+                                    + Add
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Skin Match Quiz Widget -->
+    <section id="quiz" class="py-5 bg-light">
+        <div class="container">
+            <div class="quiz-section">
+                <div class="row align-items-center">
+                    <div class="col-lg-5 mb-4 mb-lg-0">
+                        <span class="section-subtitle">Tailored Beauty</span>
+                        <h2 class="section-title mb-3">Find Your Perfect Formula</h2>
+                        <p class="text-muted mb-4">
+                            Take our 3-step dynamic diagnostic quiz. Our botanical experts match custom serums and foundation shades to your precise skin profile.
+                        </p>
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="fw-bold fs-4 font-serif text-rose-gold" id="quizStepIndicator">Step 1 of 3</div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-7">
+                        <div id="quizContainer">
+                            <!-- Quiz Step 1 -->
+                            <div class="quiz-step" id="step1">
+                                <h4 class="font-serif mb-3 fs-3">What is your primary skin type?</h4>
+                                <div class="row g-3">
+                                    <div class="col-6">
+                                        <div class="quiz-option-btn" onclick="selectQuizOption('skinType', 'Dry & Dehydrated', 1)">
+                                            <i class="fa-solid fa-droplet fs-3 text-rose-gold mb-2"></i>
+                                            <h6 class="mb-0 fw-bold">Dry / Dehydrated</h6>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="quiz-option-btn" onclick="selectQuizOption('skinType', 'Oily & Combination', 1)">
+                                            <i class="fa-solid fa-sun fs-3 text-rose-gold mb-2"></i>
+                                            <h6 class="mb-0 fw-bold">Oily / Combination</h6>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="quiz-option-btn" onclick="selectQuizOption('skinType', 'Sensitive & Reactive', 1)">
+                                            <i class="fa-solid fa-feather fs-3 text-rose-gold mb-2"></i>
+                                            <h6 class="mb-0 fw-bold">Sensitive</h6>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="quiz-option-btn" onclick="selectQuizOption('skinType', 'Balanced Glow', 1)">
+                                            <i class="fa-solid fa-sparkles fs-3 text-rose-gold mb-2"></i>
+                                            <h6 class="mb-0 fw-bold">Normal / Balanced</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Quiz Step 2 (Initially Hidden) -->
+                            <div class="quiz-step d-none" id="step2">
+                                <h4 class="font-serif mb-3 fs-3">What is your desired primary finish?</h4>
+                                <div class="row g-3">
+                                    <div class="col-6">
+                                        <div class="quiz-option-btn" onclick="selectQuizOption('finish', 'Dewy Glass Glow', 2)">
+                                            <i class="fa-solid fa-wand-magic-sparkles fs-3 text-rose-gold mb-2"></i>
+                                            <h6 class="mb-0 fw-bold">Dewy Glass Skin</h6>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="quiz-option-btn" onclick="selectQuizOption('finish', 'Velvet Semi-Matte', 2)">
+                                            <i class="fa-solid fa-cloud fs-3 text-rose-gold mb-2"></i>
+                                            <h6 class="mb-0 fw-bold">Velvet Soft Matte</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Quiz Result Display (Initially Hidden) -->
+                            <div class="quiz-step d-none" id="stepResult">
+                                <div class="text-center p-4 bg-white rounded-4 border border-rose-gold">
+                                    <i class="fa-solid fa-circle-check fs-1 text-success mb-2"></i>
+                                    <h3 class="font-serif fs-2">Your Perfect Match</h3>
+                                    <p class="text-muted mb-3" id="quizResultText">Based on your selections, we recommend the <strong>Rose Radiance Serum</strong> paired with our <strong>Cellular Night Cream</strong>.</p>
+                                    <button class="btn btn-luxe-primary me-2" onclick="addToCart('Rose Radiance Serum Match Pack', 120.00)">
+                                        Add Recommended Set ($120.00)
+                                    </button>
+                                    <button class="btn btn-luxe-outline" onclick="resetQuiz()">Retake Quiz</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ingredients & Sustainability -->
+    <section id="ingredients" class="py-5 my-5">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Pure & Powerful</span>
+                <h2 class="section-title">Key Active Botanicals</h2>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="ingredient-card">
+                        <div class="ingredient-icon-wrap">
+                            <i class="fa-solid fa-flask"></i>
+                        </div>
+                        <h4 class="font-serif fs-3 mb-2">Hyaluronic Acid</h4>
+                        <p class="text-muted small">Multi-molecular weights penetrate deeply to lock in 1000x its weight in moisture.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="ingredient-card">
+                        <div class="ingredient-icon-wrap">
+                            <i class="fa-solid fa-lemon"></i>
+                        </div>
+                        <h4 class="font-serif fs-3 mb-2">Organic Vitamin C</h4>
+                        <p class="text-muted small">Extracted from Wild Kakadu Plum to brighten tone and fade hyperpigmentation.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="ingredient-card">
+                        <div class="ingredient-icon-wrap">
+                            <i class="fa-solid fa-spa"></i>
+                        </div>
+                        <h4 class="font-serif fs-3 mb-2">Rosehip Seed Oil</h4>
+                        <p class="text-muted small">Cold-pressed omega fatty acids that smooth skin texture and soothe redness.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="ingredient-card">
+                        <div class="ingredient-icon-wrap">
+                            <i class="fa-solid fa-dna"></i>
+                        </div>
+                        <h4 class="font-serif fs-3 mb-2">Signal Peptides</h4>
+                        <p class="text-muted small">Bio-identical building blocks that stimulate natural collagen synthesis.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Customer Reviews Carousel -->
+    <section id="reviews" class="py-5 bg-light">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Real Stories</span>
+                <h2 class="section-title">Loved by Thousands Worldwide</h2>
+            </div>
+
+            <div id="reviewCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <!-- Review 1 -->
+                    <div class="carousel-item active">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="testimonial-card text-center">
+                                    <div class="rating-stars mb-3 fs-5">
+                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                    </div>
+                                    <p class="font-serif fs-3 italic mb-4">"AURA LUXE completely transformed my sensitive dry skin in two weeks. The Rose Serum gives an unmatched lit-from-within glow without feel greasy!"</p>
+                                    <h5 class="fw-bold mb-1">Victoria Sterling</h5>
+                                    <span class="badge bg-success-subtle text-success border border-success-subtle rounded-pill px-3">Verified Buyer</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Review 2 -->
+                    <div class="carousel-item">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="testimonial-card text-center">
+                                    <div class="rating-stars mb-3 fs-5">
+                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                    </div>
+                                    <p class="font-serif fs-3 italic mb-4">"Finally a luxury brand that combines clean botanical ingredients with high-performance formulas. The packaging is pure art on my vanity!"</p>
+                                    <h5 class="fw-bold mb-1">Elena Rostova</h5>
+                                    <span class="badge bg-success-subtle text-success border border-success-subtle rounded-pill px-3">Verified Buyer</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-indicators position-relative mt-4">
+                    <button type="button" data-bs-target="#reviewCarousel" data-bs-slide-to="0" class="active"></button>
+                    <button type="button" data-bs-target="#reviewCarousel" data-bs-slide-to="1"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Offcanvas Shopping Cart Drawer -->
+    <div class="offcanvas offcanvas-end offcanvas-luxe" tabindex="-1" id="cartOffcanvas">
+        <div class="offcanvas-header border-bottom border-secondary border-opacity-10">
+            <h5 class="offcanvas-title font-serif fs-3 fw-bold">Your Shopping Bag</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body d-flex flex-column">
+            <!-- Free Shipping Progress -->
+            <div class="mb-4">
+                <div class="d-flex justify-content-between small mb-1">
+                    <span>Free Shipping Progress</span>
+                    <span class="fw-bold text-rose-gold" id="shippingStatusText">$24.00 away from Free Shipping</span>
+                </div>
+                <div class="progress progress-luxe">
+                    <div class="progress-bar progress-bar-luxe" id="shippingProgressBar" role="progressbar" style="width: 70%"></div>
+                </div>
+            </div>
+
+            <!-- Cart Items Container -->
+            <div class="flex-grow-1 overflow-auto" id="cartItemsList">
+                <!-- Example Dynamic Items JS Inserted -->
+            </div>
+
+            <!-- Cart Footer -->
+            <div class="border-top border-secondary border-opacity-10 pt-3">
+                <div class="d-flex justify-content-between fs-5 mb-3">
+                    <span class="font-serif fw-bold">Subtotal</span>
+                    <span class="fw-bold" id="cartSubtotal">$106.00</span>
+                </div>
+                <button class="btn btn-luxe-primary w-100 py-3" onclick="alert('Proceeding to Secure Checkout!')">
+                    Checkout <i class="fa-solid fa-lock ms-2"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick View Product Detail Modal -->
+    <div class="modal fade" id="quickViewModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content modal-content-luxe">
+                <div class="modal-body p-0">
+                    <div class="row g-0">
+                        <div class="col-md-6 bg-warm-nude p-5 d-flex align-items-center justify-content-center">
+                            <svg id="modalProductSvg" viewBox="0 0 150 180" style="width: 80%; height: 250px;">
+                                <rect x="45" y="50" width="60" height="100" rx="15" fill="#FFFFFF" stroke="#B76E79" stroke-width="2"/>
+                                <rect x="52" y="80" width="46" height="60" id="modalSvgFill" fill="#E8C5C8"/>
+                            </svg>
+                        </div>
+                        <div class="col-md-6 p-4 p-md-5 d-flex flex-column justify-content-between">
+                            <div>
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <h3 class="font-serif fs-2 mb-0" id="modalProductTitle">Product Title</h3>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                </div>
+                                <h4 class="text-rose-gold fw-bold mb-3" id="modalProductPrice">$0.00</h4>
+                                <p class="text-muted small mb-4" id="modalProductDesc">Description goes here...</p>
+
+                                <label class="form-label fw-bold small text-uppercase">Select Shade Spectrum:</label>
+                                <div class="d-flex gap-2 mb-4">
+                                    <button class="swatch-dot active" style="background-color: #e8c5c8;" onclick="changeModalShade('#e8c5c8')"></button>
+                                    <button class="swatch-dot" style="background-color: #b76e79;" onclick="changeModalShade('#b76e79')"></button>
+                                    <button class="swatch-dot" style="background-color: #c47c87;" onclick="changeModalShade('#c47c87')"></button>
+                                </div>
+                            </div>
+
+                            <button class="btn btn-luxe-primary w-100" id="modalAddBtn">
+                                Add To Shopping Bag
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Search Modal -->
+    <div class="modal fade" id="searchModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content modal-content-luxe p-4">
+                <div class="d-flex align-items-center gap-2 border-bottom border-secondary border-opacity-25 pb-2">
+                    <i class="fa-solid fa-magnifying-glass text-muted"></i>
+                    <input type="text" class="form-control border-0 bg-transparent" placeholder="Search serums, lipsticks, creams...">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row gy-4 mb-5">
+                <div class="col-lg-4">
+                    <div class="footer-brand mb-3">AURA LUXE</div>
+                    <p class="small text-white-50 mb-4" style="max-width: 300px;">
+                        Crafting high-performance botanical skincare & makeup rituals elevating everyday beauty into pure luxury.
+                    </p>
+                    <div class="d-flex gap-3">
+                        <a href="#"><i class="fab fa-instagram fs-5"></i></a>
+                        <a href="#"><i class="fab fa-pinterest fs-5"></i></a>
+                        <a href="#"><i class="fab fa-tiktok fs-5"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f fs-5"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-3 col-lg-2">
+                    <h6 class="text-uppercase text-white font-serif mb-3">Collections</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#">Rose Radiance</a></li>
+                        <li class="mb-2"><a href="#">Velour Lips</a></li>
+                        <li class="mb-2"><a href="#">Botanical Serums</a></li>
+                        <li class="mb-2"><a href="#">Night Creams</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-6 col-md-3 col-lg-2">
+                    <h6 class="text-uppercase text-white font-serif mb-3">Customer Care</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#">Track Order</a></li>
+                        <li class="mb-2"><a href="#">Shipping & Returns</a></li>
+                        <li class="mb-2"><a href="#">Store Locator</a></li>
+                        <li class="mb-2"><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-4">
+                    <h6 class="text-uppercase text-white font-serif mb-3">Join The Society</h6>
+                    <p class="small text-white-50 mb-3">Subscribe to receive 15% off your first luxury order & private collection invitations.</p>
+                    <form onsubmit="subscribeNewsletter(event)">
+                        <div class="input-group">
+                            <input type="email" class="form-control newsletter-input" placeholder="Enter your email" required>
+                            <button class="btn btn-luxe-primary px-4" type="submit">Join</button>
+                        </div>
+                    </form>
+                    <div id="newsletterSuccess" class="small text-success mt-2 d-none">
+                        <i class="fa-solid fa-circle-check me-1"></i> Welcome to AURA LUXE Society!
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-top border-secondary border-opacity-25 pt-4 text-center text-white-50 small">
+                &copy; 2026 AURA LUXE Botanicals Inc. All Rights Reserved. Designed with elegance.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JavaScript Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Embedded Application JavaScript -->
+    <script>
+        // Shopping Cart State
+        let cartItems = [
+            { name: 'Rose Radiance Serum', price: 68.00, qty: 1 },
+            { name: 'Velour Matte Lipstick', price: 38.00, qty: 1 }
+        ];
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('mainNavbar');
+            if (window.scrollY > 40) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Filter Products Logic
+        function filterProducts(category, button) {
+            const buttons = document.querySelectorAll('#filterPillGroup .filter-pill-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+
+            const items = document.querySelectorAll('.product-item');
+            items.forEach(item => {
+                if (category === 'all' || item.dataset.category === category) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // Quick View Modal Opener
+        function openQuickView(title, price, desc, shadeHex) {
+            document.getElementById('modalProductTitle').innerText = title;
+            document.getElementById('modalProductPrice').innerText = price;
+            document.getElementById('modalProductDesc').innerText = desc;
+            document.getElementById('modalSvgFill').setAttribute('fill', shadeHex);
+
+            document.getElementById('modalAddBtn').onclick = function() {
+                const numericPrice = parseFloat(price.replace('$', ''));
+                addToCart(title, numericPrice);
+                const modalEl = document.getElementById('quickViewModal');
+                const modal = bootstrap.Modal.getInstance(modalEl);
+                modal.hide();
+            };
+
+            const modal = new bootstrap.Modal(document.getElementById('quickViewModal'));
+            modal.show();
+        }
+
+        function changeModalShade(color) {
+            document.getElementById('modalSvgFill').setAttribute('fill', color);
+        }
+
+        // Cart Management
+        function renderCart() {
+            const container = document.getElementById('cartItemsList');
+            container.innerHTML = '';
+            let total = 0;
+            let count = 0;
+
+            cartItems.forEach((item, index) => {
+                total += item.price * item.qty;
+                count += item.qty;
+
+                container.innerHTML += `
+                    <div class="cart-item-card d-flex align-items-center justify-content-between">
+                        <div>
+                            <h6 class="mb-0 fw-bold font-serif fs-5">${item.name}</h6>
+                            <small class="text-muted">$${item.price.toFixed(2)} x ${item.qty}</small>
+                        </div>
+                        <div class="d-flex align-items-center gap-2">
+                            <span class="fw-bold">$${(item.price * item.qty).toFixed(2)}</span>
+                            <button class="btn btn-sm text-danger border-0" onclick="removeFromCart(${index})">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+            });
+
+            document.getElementById('cartSubtotal').innerText = `$${total.toFixed(2)}`;
+            document.getElementById('cartBadgeCount').innerText = count;
+
+            // Update Free Shipping Progress (Free Shipping over $100)
+            const freeThreshold = 100.00;
+            const progress = Math.min((total / freeThreshold) * 100, 100);
+            const progressBar = document.getElementById('shippingProgressBar');
+            const statusText = document.getElementById('shippingStatusText');
+
+            progressBar.style.width = `${progress}%`;
+            if (total >= freeThreshold) {
+                statusText.innerText = "You unlocked Free Worldwide Shipping!";
+            } else {
+                const diff = freeThreshold - total;
+                statusText.innerText = `$${diff.toFixed(2)} away from Free Shipping`;
+            }
+        }
+
+        function addToCart(name, price) {
+            const existing = cartItems.find(item => item.name === name);
+            if (existing) {
+                existing.qty++;
+            } else {
+                cartItems.push({ name, price, qty: 1 });
+            }
+            renderCart();
+
+            // Trigger Offcanvas
+            const cartCanvas = new bootstrap.Offcanvas(document.getElementById('cartOffcanvas'));
+            cartCanvas.show();
+        }
+
+        function removeFromCart(index) {
+            cartItems.splice(index, 1);
+            renderCart();
+        }
+
+        // Quiz Selection logic
+        let quizState = {};
+        function selectQuizOption(key, val, step) {
+            quizState[key] = val;
+            if (step === 1) {
+                document.getElementById('step1').classList.add('d-none');
+                document.getElementById('step2').classList.remove('d-none');
+                document.getElementById('quizStepIndicator').innerText = 'Step 2 of 3';
+            } else if (step === 2) {
+                document.getElementById('step2').classList.add('d-none');
+                document.getElementById('stepResult').classList.remove('d-none');
+                document.getElementById('quizStepIndicator').innerText = 'Complete!';
+                document.getElementById('quizResultText').innerHTML = `Selected for <strong>${quizState.skinType}</strong> skin with a <strong>${quizState.finish}</strong> finish!`;
+            }
+        }
+
+        function resetQuiz() {
+            quizState = {};
+            document.getElementById('stepResult').classList.add('d-none');
+            document.getElementById('step1').classList.remove('d-none');
+            document.getElementById('quizStepIndicator').innerText = 'Step 1 of 3';
+        }
+
+        // Newsletter Handler
+        function subscribeNewsletter(e) {
+            e.preventDefault();
+            document.getElementById('newsletterSuccess').classList.remove('d-none');
+        }
+
+        // Initialize cart render on load
+        document.addEventListener('DOMContentLoaded', renderCart);
+    </script>
+</body>
+</html>
